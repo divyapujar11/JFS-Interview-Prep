@@ -1,0 +1,172 @@
+polymorphism:
+* polymorphism is an ability of an object to take many different forms
+* 2 types of polymorphism: 
+    * compile-time polymorphism: also known as static polymorphism, this type of polymorphism is achieved by method overloading
+    * run-time polymorphism: also known as dynamic method polymorphism, this type of polymorphism is achieved by method overridding
+
+method overriding:
+* if class(sub class/child class) has same method declaration in the parent class then is said to be method overriding.
+* method overriding is used for run polymorphism
+* while using method overriding there must be:
+    * the method name must be same as in parent class
+    * method must have same parameter as the parent class
+    * there must be IS-A relationship
+eg: a scenario of bank fetching rate of interest of different banks with same method name , bank extends SBIbank, bank extends ICICIbank etc..
+
+* methods we cannot override : main() , static methods{ static methods cannot be overriden because the static objects belong to class area instance object belong to heap area }
+* instace object are non-static object which are created when objects are created using 'new' keyword adn detroyed when obj is destroyed.
+
+Run-time polymorphism:
+* run-time polymorphism is the process in which the call of overriden method is resolved in runtime rather than compile-time
+* it is done JVM
+* eg:
+class Bank{
+    int rateOfInterest(){
+        return 0;
+    }
+}
+
+class SBIbank extends Bank{
+    int rateOfInterest(){
+        return 5;
+    }
+}
+
+class ICICIbank extends Bank{
+    int rateOfInterest(){
+        return 7;
+    }
+}
+
+class YESbank extends Bank{
+    int rateOfInterest(){
+        return 6;
+    }
+}
+
+class Main1{
+    public static void main(String[] args) {
+        Bank b;
+        b = new SBIbank();
+        System.out.println("SBI Bnk rate of interest: " +b.rateOfInterest());
+        b = new ICICIbank();
+        System.out.println("ICICI Bank rate of interest: "+b.rateOfInterest());
+        b = new YESbank();
+        System.out.println("YES Bank rate of interest: "+b.rateOfInterest());
+    }
+}
+
+
+method overloading:
+* if a class has same name but different parameters then that method is called method overloading.
+* method overloading increases readability of the program.
+* there are two ways to overload the method:
+    * by changing number of arguments
+    * by changing data type in argument
+* we can overload main() method 
+* eg:
+    * public void main(String[] args){}
+    * public void main(String args[]){}
+    * public void main(){}
+
+public class Compitimepoly {
+    public int calculate(int a, int b){
+        return a+b;
+    }
+    public int calculate(int a, int b, int c){
+        return a+b+c;
+    }
+    public static void main(String[] args) {
+        Compitimepoly calc = new Compitimepoly();
+        System.out.println("sum of a and b : "+ calc.calculate(4,5));
+        System.out.println("sum of a, b and c : "+ calc.calculate(5,8,9));
+    }
+}
+
+super keyword:
+* super keyword is a reference variable which is used to call parent object.
+* super is used to refer parent class object
+* super() is used to invoke parent class constructor
+* we can super keyword to access data members or field of parent class
+* it is used if parent class and child class have same values
+
+class Person{
+    int id;
+    String name;
+    Person(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+    void enjoy(){
+        System.out.println("enjoying");
+    }
+}
+
+class Employee extends Person{
+    float salary;
+    Employee(int id, String name, float salary){
+        super(id,name);
+        this.salary = salary;
+    }
+    void display(){
+        System.out.println(id+" "+name+" "+salary);
+        super.enjoy();
+    }
+}
+
+class Superkeywo {
+
+    public static void main(String[] args) {
+        Employee emp = new Employee(22145, "ankita", 98758.9f);
+        emp.display();
+    }
+}
+
+Final Keyword/method/class:
+* final keyword is like a constant once the value is assigned it cannot be changed, if changed then there will be compile error
+* if final method is used the it cannot be overriden
+* if final class is used then it cannot be extended
+
+eg: final keyword
+class Finalkey{
+    final int speedlimit=90;
+    void run(){
+        // error compile time error
+        // speedlimit=100;
+        System.out.println("run() will not execute because of compile error");
+    }
+    public static void main(String[] args) {
+        Finalkey key = new Finalkey();
+        key.run();
+    }
+}
+
+
+eg: final method
+class Bike{  
+  final void run(){System.out.println("running");}  
+}  
+     
+class Honda extends Bike{  
+   void run(){System.out.println("running safely with 100kmph");}  
+     
+   public static void main(String args[]){  
+   Honda honda= new Honda();  
+   honda.run();  
+   }  
+}
+
+eg: final class
+final class Bike{}  
+  
+class Honda1 extends Bike{  
+  void run(){System.out.println("running safely with 100kmph");}  
+    
+  public static void main(String args[]){  
+  Honda1 honda= new Honda1();  
+  honda.run();  
+  }  
+}  
+
+this keyword:
+* this keyword is a reference variable that refers to the current object
