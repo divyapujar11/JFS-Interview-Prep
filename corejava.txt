@@ -1,10 +1,10 @@
-polymorphism:
+---------------------------------polymorphism:
 * polymorphism is an ability of an object to take many different forms
 * 2 types of polymorphism: 
     * compile-time polymorphism: also known as static polymorphism, this type of polymorphism is achieved by method overloading
     * run-time polymorphism: also known as dynamic method polymorphism, this type of polymorphism is achieved by method overridding
 
-method overriding:
+--------------------------------method overriding:
 * if class(sub class/child class) has same method declaration in the parent class then is said to be method overriding.
 * method overriding is used for run polymorphism
 * while using method overriding there must be:
@@ -16,7 +16,7 @@ eg: a scenario of bank fetching rate of interest of different banks with same me
 * methods we cannot override : main() , static methods{ static methods cannot be overriden because the static objects belong to class area instance object belong to heap area }
 * instace object are non-static object which are created when objects are created using 'new' keyword adn detroyed when obj is destroyed.
 
-Run-time polymorphism:
+-------------------------------Run-time polymorphism:
 * run-time polymorphism is the process in which the call of overriden method is resolved in runtime rather than compile-time
 * it is done JVM
 * eg:
@@ -57,7 +57,7 @@ class Main1{
 }
 
 
-method overloading:
+------------------------------method overloading:
 * if a class has same name but different parameters then that method is called method overloading.
 * method overloading increases readability of the program.
 * there are two ways to overload the method:
@@ -83,7 +83,7 @@ public class Compitimepoly {
     }
 }
 
-super keyword:
+----------------------------super keyword:
 * super keyword is a reference variable which is used to call parent object.
 * super is used to refer parent class object
 * super() is used to invoke parent class constructor
@@ -122,7 +122,7 @@ class Superkeywo {
     }
 }
 
-Final Keyword/method/class:
+--------------------------------Final Keyword/method/class:
 * final keyword is like a constant once the value is assigned it cannot be changed, if changed then there will be compile error
 * if final method is used the it cannot be overriden
 * if final class is used then it cannot be extended
@@ -168,5 +168,20 @@ class Honda1 extends Bike{
   }  
 }  
 
-this keyword:
+--------------------------------this keyword:
 * this keyword is a reference variable that refers to the current object
+
+--------------------------------Constructor:
+* Constructor is special type of method which used to initialize object
+* Everytime when object is created using new keyword a default constructor is called
+* constructor has two types:
+    * paramiterized constructor
+    * default Constructor 
+* constructor must have same name as class name while creating
+* constructor cannot be static, abstract, final and synchronized
+* constructor can be overloaded by having same name with different paramenters.
+* the purpose of default constructor is, its is called when no constructor is created in the class and assign default values to the objects
+* the purpose of parameterized constructor is to give specific values to the objects created by the constructor.
+
+---------------------------------Method:
+* 
