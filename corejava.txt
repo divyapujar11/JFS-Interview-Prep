@@ -147,6 +147,94 @@ static block:
 * it will run before main()
 * this is done in java 1.6, after java1.6 this is not work.
 
+---------------------------------Inheritence:
+* Inheritence in java is a mechanism in which a object acquire all property and behaviour of a parent class
+* Inheritence is used to achieve method overriding( runtime polymorphism) and code reusibility.
+* there are three types of inheritence:
+    * single inheritence
+    * multilevel inheritence
+    * hierarchial inheritence
+
+eg: single inheritence
+class A{
+    void display1(){
+        System.out.println("from Class A");
+    }
+}
+
+class B extends A{
+    void display(){
+        System.out.println("from Class B");
+    }
+}
+
+class Inheritence_single{
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.display();
+        obj.display1();
+    }
+}
+
+eg: multilevel inheritence
+
+class A{
+    void run(){
+        System.out.println("run class A");
+    }
+}
+
+class B extends A{
+    void walk(){
+        System.out.println("walk class B");
+    }
+}
+
+class C extends B{
+    void sprint(){
+        System.out.println("sprint class C");
+    }
+}
+public class Inherit_multilevel {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.sprint();
+        obj.walk();
+        obj.run();
+    }
+}
+
+eg: hierarchial inheritence
+
+class A{
+    void run(){
+        System.out.println("run");
+    }
+}
+
+class B extends A{
+    void jump(){
+        System.out.println("Jump");
+    }
+}
+
+class C extends A{
+    void kick(){
+        System.out.println("kick");
+    }
+}
+
+class Inherit_Hierarchial {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.kick();
+        obj.run();
+    }
+}
+
+* multiple inheritence and hybrid inheritence are not supported in inheritence, to achieve these two we can use interface 
+* multiple inheritence is not supportedin inheritence because to reduce complexity and simple the language
+
 ---------------------------------polymorphism:
 * polymorphism is an ability of an object to take many different forms
 * 2 types of polymorphism: 
