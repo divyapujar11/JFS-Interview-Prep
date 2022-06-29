@@ -1,87 +1,40 @@
----------------------------------polymorphism:
-* polymorphism is an ability of an object to take many different forms
-* 2 types of polymorphism: 
-    * compile-time polymorphism: also known as static polymorphism, this type of polymorphism is achieved by method overloading
-    * run-time polymorphism: also known as dynamic method polymorphism, this type of polymorphism is achieved by method overridding
+----------------------------------Object and Class:
+* object is a entity which has state and behaviour
+* object is created by using new keyword eg: Object obj = new Object()
+* class is a blueprint where objects are created
+* new keyword is used to allocate memory at runtime
 
---------------------------------method overriding:
-* if class(sub class/child class) has same method declaration in the parent class then is said to be method overriding.
-* method overriding is used for run polymorphism
-* while using method overriding there must be:
-    * the method name must be same as in parent class
-    * method must have same parameter as the parent class
-    * there must be IS-A relationship
-eg: a scenario of bank fetching rate of interest of different banks with same method name , bank extends SBIbank, bank extends ICICIbank etc..
+---------------------------------Method:
+* Method is block of code that performs specific task
+* it is used to achieve reusability of code
+* method declaration has access specifier, return type, method name, parameters
 
-* methods we cannot override : main() , static methods{ static methods cannot be overriden because the static objects belong to class area instance object belong to heap area }
-* instace object are non-static object which are created when objects are created using 'new' keyword adn detroyed when obj is destroyed.
+static method:
+* static method contains static keyword and it belongs to a static class rather than instance of class
+* no objection creation is needed in static class
 
--------------------------------Run-time polymorphism:
-* run-time polymorphism is the process in which the call of overriden method is resolved in runtime rather than compile-time
-* it is done JVM
-* eg:
-class Bank{
-    int rateOfInterest(){
-        return 0;
-    }
-}
+instance method:
+* instance method is method of class 
+* object must be created before calling the method
+* instance method has two types:
+    * accessor method - get method or getter used to get values from private methods
+    * mutuator method - set method or setter used to set values of private method
 
-class SBIbank extends Bank{
-    int rateOfInterest(){
-        return 5;
-    }
-}
+abstract method:
+* abstract method is method without method body/implementation
+* abstract method is declared in abstract class only using abstract keyword to the class
 
-class ICICIbank extends Bank{
-    int rateOfInterest(){
-        return 7;
-    }
-}
-
-class YESbank extends Bank{
-    int rateOfInterest(){
-        return 6;
-    }
-}
-
-class Main1{
-    public static void main(String[] args) {
-        Bank b;
-        b = new SBIbank();
-        System.out.println("SBI Bnk rate of interest: " +b.rateOfInterest());
-        b = new ICICIbank();
-        System.out.println("ICICI Bank rate of interest: "+b.rateOfInterest());
-        b = new YESbank();
-        System.out.println("YES Bank rate of interest: "+b.rateOfInterest());
-    }
-}
-
-
-------------------------------method overloading:
-* if a class has same name but different parameters then that method is called method overloading.
-* method overloading increases readability of the program.
-* there are two ways to overload the method:
-    * by changing number of arguments
-    * by changing data type in argument
-* we can overload main() method 
-* eg:
-    * public void main(String[] args){}
-    * public void main(String args[]){}
-    * public void main(){}
-
-public class Compitimepoly {
-    public int calculate(int a, int b){
-        return a+b;
-    }
-    public int calculate(int a, int b, int c){
-        return a+b+c;
-    }
-    public static void main(String[] args) {
-        Compitimepoly calc = new Compitimepoly();
-        System.out.println("sum of a and b : "+ calc.calculate(4,5));
-        System.out.println("sum of a, b and c : "+ calc.calculate(5,8,9));
-    }
-}
+--------------------------------Constructor:
+* Constructor is special type of method which used to initialize object
+* Everytime when object is created using new keyword a default constructor is called
+* constructor has two types:
+    * paramiterized constructor
+    * default Constructor 
+* constructor must have same name as class name while creating
+* constructor cannot be static, abstract, final and synchronized
+* constructor can be overloaded by having same name with different paramenters.
+* the purpose of default constructor is, its is called when no constructor is created in the class and assign default values to the objects
+* the purpose of parameterized constructor is to give specific values to the objects created by the constructor.
 
 ----------------------------super keyword:
 * super keyword is a reference variable which is used to call parent object.
@@ -171,17 +124,116 @@ class Honda1 extends Bike{
 --------------------------------this keyword:
 * this keyword is a reference variable that refers to the current object
 
---------------------------------Constructor:
-* Constructor is special type of method which used to initialize object
-* Everytime when object is created using new keyword a default constructor is called
-* constructor has two types:
-    * paramiterized constructor
-    * default Constructor 
-* constructor must have same name as class name while creating
-* constructor cannot be static, abstract, final and synchronized
-* constructor can be overloaded by having same name with different paramenters.
-* the purpose of default constructor is, its is called when no constructor is created in the class and assign default values to the objects
-* the purpose of parameterized constructor is to give specific values to the objects created by the constructor.
 
----------------------------------Method:
-* 
+----------------------------------Static keyword/method:
+static keyword:
+* if the variable is declared with static keyword then its is static variable.
+* the static variable gets the memory only once in the class area at the time of class loading
+* the static variable is used to refer the common property of all objects in class/method. eg: college name of students present in same college.
+* advantage of static variable is it makes program memory efficient
+
+static method:
+* if the method is declared with static keyword then it is static method
+* creation of object in static method is not required 
+* static method can create and access static data members
+* static method cannot invoke or call non-static members 
+* in static method this and super keyword is not used
+
+why main() is static?
+=> main method is static so there will be no creation of object and if the main() is static then it has to create object everytime it executed and lead to problem extra memory allocation.
+
+static block:
+* it is used to initialize the static data members
+* it will run before main()
+* this is done in java 1.6, after java1.6 this is not work.
+
+---------------------------------polymorphism:
+* polymorphism is an ability of an object to take many different forms
+* 2 types of polymorphism: 
+    * compile-time polymorphism: also known as static polymorphism, this type of polymorphism is achieved by method overloading
+    * run-time polymorphism: also known as dynamic method polymorphism, this type of polymorphism is achieved by method overridding
+
+--------------------------------method overriding:
+* if class(sub class/child class) has same method declaration in the parent class then is said to be method overriding.
+* method overriding is used for run polymorphism
+* while using method overriding there must be:
+    * the method name must be same as in parent class
+    * method must have same parameter as the parent class
+    * there must be IS-A relationship
+eg: a scenario of bank fetching rate of interest of different banks with same method name , bank extends SBIbank, bank extends ICICIbank etc..
+
+* methods we cannot override : main() , static methods{ static methods cannot be overriden because the static objects belong to class area instance object belong to heap area }
+* instace object are non-static object which are created when objects are created using 'new' keyword adn detroyed when obj is destroyed.
+
+-------------------------------Run-time polymorphism:
+* run-time polymorphism is the process in which the call of overriden method is resolved in runtime rather than compile-time
+* it is done JVM
+* eg:
+class Bank{
+    int rateOfInterest(){
+        return 0;
+    }
+}
+
+class SBIbank extends Bank{
+    int rateOfInterest(){
+        return 5;
+    }
+}
+
+class ICICIbank extends Bank{
+    int rateOfInterest(){
+        return 7;
+    }
+}
+
+class YESbank extends Bank{
+    int rateOfInterest(){
+        return 6;
+    }
+}
+
+class Main1{
+    public static void main(String[] args) {
+        Bank b;
+        b = new SBIbank();
+        System.out.println("SBI Bnk rate of interest: " +b.rateOfInterest());
+        b = new ICICIbank();
+        System.out.println("ICICI Bank rate of interest: "+b.rateOfInterest());
+        b = new YESbank();
+        System.out.println("YES Bank rate of interest: "+b.rateOfInterest());
+    }
+}
+
+
+------------------------------method overloading:
+* if a class has same name but different parameters then that method is called method overloading.
+* method overloading increases readability of the program.
+* there are two ways to overload the method:
+    * by changing number of arguments
+    * by changing data type in argument
+* we can overload main() method 
+* eg:
+    * public void main(String[] args){}
+    * public void main(String args[]){}
+    * public void main(){}
+
+public class Compitimepoly {
+    public int calculate(int a, int b){
+        return a+b;
+    }
+    public int calculate(int a, int b, int c){
+        return a+b+c;
+    }
+    public static void main(String[] args) {
+        Compitimepoly calc = new Compitimepoly();
+        System.out.println("sum of a and b : "+ calc.calculate(4,5));
+        System.out.println("sum of a, b and c : "+ calc.calculate(5,8,9));
+    }
+}
+
+
+
+
+
+
