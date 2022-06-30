@@ -369,6 +369,141 @@ public class Compitimepoly {
     }
 }
 
+-------------------------------Abstraction:
+* abstraction is process of hiding implementation details and showing only functionality to user 
+* abstraction lets you focus on what object does insted of how it is done
+* abstration is achieved by abstract class and interface
+* abstract class is class declared with abstract keyword
+* eg: abstraction with abstract class/ method and constructor
+abstract class Bike{
+	Bike(){
+		System.out.println("Bike is created");
+	}
+	abstract void run();
+	void changeGear(){
+		System.out.println("Change Gear");
+	}
+}
+
+class Honda extends Bike{
+	void run() {
+		System.out.println("running safely");
+	}
+}
+
+public class Abstract1 {
+	public static void main(String[] args) {
+		Bike b = new Honda();
+		b.run();
+	}
+}
+
+-------------------------------------------Interface:
+Interface:
+* interface is mechanism to achieve abstraction and multiple inheritence
+* java interface represents IS-A relationship and it can have abstract methods and variables
+* in java 8 we can have default and static methods in interface
+* while compiling, the compiler adds public static final to variable and public abstract to methods in interface by default.
+* class extends class, interface extends interface, but class implements interface 
+* a class can inherit multiple interfaces and interfaces can inherit multiple interfaces this inheritence is called multiple inheritence 
+* while implementing interface method, the method should be always public 
+eg:
+interface Printable{
+	void print();
+}
+interface Showable{
+	void show();
+}
+class A implements Printable,Showable{
+	public void print() {
+		System.out.println("printing");
+	}
+	public void show() {
+		System.out.println("showing");
+	}
+}
+public class Interface_ex1 {
+	public static void main(String[] args) {
+		A a = new A();
+		a.print();
+		a.show();
+	}
+}
+
+-------------------------------------------Package:
+Package:
+* packages in java a group of similar type of classes, interface and sub-packages
+* java packages is used to catagorize classes and interface so that they can be maintained easily
+* java packages provides access protection
+* access package from another package:
+    * import package.*;
+    * import package.classname;
+    * fully qualified name
+
+Access modifiers:
+                                        Private   public   protected   default
+within the class                          YES      YES        YES         YES
+within package                             NO      YES        YES         YES 
+outside package by subclass only           NO      YES        YES          NO
+outside package                            NO      YES         NO          NO 
+
+-------------------------------------------Encapsulation:
+Encapsulation:
+* Encapsulation is process of wrapping code and data binding together into single unit.
+* class is encapsulated by making all data members into private and declaring setter and getter method in the class
+* java bean class is encapsulated class
+eg: 
+package encapex1;
+
+public class Encapsulation_ex1 {
+	
+ private String name, emailId;
+ private int amount;
+ private int accno;
+ 
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getEmailId() {
+	return emailId;
+}
+public void setEmailId(String emailId) {
+	this.emailId = emailId;
+}
+public int getAmount() {
+	return amount;
+}
+public void setAmount(int amount) {
+	this.amount = amount;
+}
+public int getAccno() {
+	return accno;
+}
+public void setAccno(int accno) {
+	this.accno = accno;
+}
+ 
+}
+
+import encapex1.*;
+public class Encap_acc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Encapsulation_ex1 obj = new Encapsulation_ex1();
+		obj.setName("lisa");
+		obj.setEmailId("lisalala@gmal.com");
+		obj.setAmount(233333);
+		obj.setAccno(409080);
+		
+		System.out.println(obj.getName()+" "+obj.getEmailId()+" "+obj.getAmount()+" "+obj.getAccno());
+		
+	}
+
+}
 
 
 
